@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+
+        const QUOTEBANK = [
+        {    
+        quote: "I am Commander Shepard, and this is my favorite store on the Citadel",
+        author: "Mass Effect"
+        },
+        {    
+        quote: "It is time to kick ass and chew bubble gum…and I am all outta gum.",
+        author: "Duke Nukem"
+        },
+        {    
+        quote: "What is a man? A Miserable little pile of secrets!",
+        author: "Castlevania: Symphony of the Night"
+        },
+        {    
+        quote: "We’re not tools of the government or anyone else. Fighting was the only thing I was good at, but at least I always fought for what I believed in.",
+        author: "Metal Gear Solid"
+        },
+        {    
+        quote: "They were all dead. The final gunshot was an exclamation mark to everything that had led to this point. I released my finger from the trigger. And then it was over.",
+        author: "Max Payne"
+        },
+        {    
+        quote: "You were almost a Jill sandwich!",
+        author: "B. Burton, Resident Evil"
+        },
+        {    
+        quote: "FINISH HIM!",
+        author: "Shao Khan"
+        },
+
+        {    
+        quote: "Some trees flourish, others die. Some cattle grow strong, others are taken by wolves. Some men are born rich enough and dumb enough to enjoy their lives. Ain’t nothing fair.",
+        author: "Red Dead Redemption"
+        },
+        {    
+        quote: "Nothing is true, everything is permitted.",
+        author: "Assassin's Creed"
+        },
+        {    
+        quote: "GROWL",
+        author: "Cleric beast, Bloodborne"
+        },
+        {    
+        quote: "Yes, indeed...",
+        author: "Dark Souls"
+        },
+        {    
+        quote: "Praise the sun!",
+        author: "Solaire of Astora"
+        },
+        {    
+        quote: "I will have my revenge!",
+        author: "Kratos, God of War"
+        },
+        {    
+        quote: "Thank you, Mario! But our Princess is in another castle!",
+        author: "Super Mario"
+        },
+        {    
+        quote: "I have a plan",
+        author: "Dutch, Red dead Redemption 2"
+        },
+        {    
+        quote: "STAAAAAAAAAARS",
+        author: "Nemesis, Resident Evil 3"
+        },
+
+        ]
+
+        window.onload = init;
+        function init () {
+             generateQuote()
+        }
+
+        function generateQuote() {
+
+            let quoteSize = QUOTEBANK.length;
+            let randomIndex = Math.floor(Math.random() * QUOTEBANK.length);
+            let randomQuoteData = QUOTEBANK[randomIndex];
+
+            let twitterLink = "https://twitter.com/intent/tweet?hashtags=quotes&;related=freecodecamp&text="
+           
+           
+            let quoteInApiFormat = randomQuoteData.quote.replace(/ /g, "%20");
+
+           
+
+           let authorInApiFormat = randomQuoteData.author.replace(/ /g, "%20");
+           
+           twitterLink += quoteInApiFormat
+           twitterLink += " - "+ authorInApiFormat;
+
+           document.getElementById("tweet-quote").href = twitterLink; 
+           document.getElementById("text").innerText = randomQuoteData.quote;
+            document.getElementById("author").innerText = randomQuoteData.author;
+            
+            
+            
+        }
+    </script>
+  
+    <title>Random Videogame Quote Generator</title>
+</head>
+<body>
+<div class="container">
+    <div class="row py-5">
+        <div class="col-md-8 offset-md-2">
+    <wrapper id="quote-box">
+        <div class="card">
+            <div class="card-header text-center">
+                Random videogame quote machine
+            </div>
+            <div class="card-body">
+              <h5 class="card-title"><div id="text"></div></h5>
+              <p class="card-text">
+              <div id="author"></div>
+            </p>
+
+              <button id="new-quote" class="btn  btn-success btn-block" onclick="generateQuote()">New Quote</button>
+              <a href= "#"  target="_blank" id="tweet-quote" class="btn  btn-primary btn-block">Tweet Quote</a>
+            </div>
+            
+          </div>
+      
+ 
+        
+    </wrapper>
+</div>
+    </div>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+        
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    
+</body>
+</html>
